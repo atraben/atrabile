@@ -1,0 +1,1025 @@
+/******************************************************************
+Theme Name: Atrabile (Responsive Edition)
+Theme URI: http://www.atrabile.org
+Description: Atrabile's WP theme
+Author: So2design - One Pixel Studio
+ Author URI: http://www.so2design.ch
+Version: 0.8
+Tags: html5, css3, responsive
+
+License: GPL or whatever
+License URI: http://www.gnu.org/copyleft/gpl.html
+
+Media Queries Developed by: Andy Clarke & the 320 & Up Extension
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+
+Check out this plugin by Robert Rourke wich makes setting up
+a select input on mobile as your navigation a breeze:
+http://wordpress.org/extend/plugins/dropdown-menus/
+
+THIS FILE IS FOR RESPONSIVE DESIGNS & REPLACES THE STYLE.CSS FILE
+IN THE THEME ROOT. THIS IS PRETTY EXPIRIMENTAL SO BE WARNED.
+
+All Default Styles are in library/css/normalize.css
+I reccommend not editing those files and making all
+changes here. That way if something goes awry, you
+can easily revert back to the original, but that's
+totally up to you. Happy Developing!
+
+******************************************************************/
+
+/******************************************************************
+COMMON & REUSABLE STYLES
+******************************************************************/
+
+/* text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* highlighting search term on search page */
+mark, .search-term { background: #EBE16F; }
+
+/* alerts & notices */
+.help, .info, .error, .success { margin: 10px; padding: 5px 18px; border: 1px solid #cecece; }
+.help { border-color: #E0C618; background: #EBE16F; }
+.info { border-color: #92cae4; background: #d5edf8; }
+.error { border-color: #fbc2c4; background: #fbe3e4; }
+.success { border-color: #c6d880; background: #e6efc2; } 
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the 
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+@font-face {
+    font-family: 'PFBI';
+    src: url('library/fonts/pfcentroslabpro-blackital-webfont.eot');
+    src: url('library/fonts/pfcentroslabpro-blackital-webfont.eot?#iefix') format('embedded-opentype'),
+         url('library/fonts/pfcentroslabpro-blackital-webfont.woff') format('woff'),
+         url('library/fonts/pfcentroslabpro-blackital-webfont.ttf') format('truetype'),
+         url('library/fonts/pfcentroslabpro-blackital-webfont.svg#PFCentroSlabProBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PFB';
+    src: url('library/fonts/pfcentroslabpro-black-webfont.eot');
+    src: url('library/fonts/pfcentroslabpro-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('library/fonts/pfcentroslabpro-black-webfont.woff') format('woff'),
+         url('library/fonts/pfcentroslabpro-black-webfont.ttf') format('truetype'),
+         url('library/fonts/pfcentroslabpro-black-webfont.svg#PFCentroSlabProBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PFI';
+    src: url('library/fonts/pfcentroslabpro-italic-webfont.eot');
+    src: url('library/fonts/pfcentroslabpro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('library/fonts/pfcentroslabpro-italic-webfont.woff') format('woff'),
+         url('library/fonts/pfcentroslabpro-italic-webfont.ttf') format('truetype'),
+         url('library/fonts/pfcentroslabpro-italic-webfont.svg#PFCentroSlabProItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PFR';
+    src: url('library/fonts/pfcentroslabpro-reg-webfont.eot');
+    src: url('library/fonts/pfcentroslabpro-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('library/fonts/pfcentroslabpro-reg-webfont.woff') format('woff'),
+         url('library/fonts/pfcentroslabpro-reg-webfont.ttf') format('truetype'),
+         url('library/fonts/pfcentroslabpro-reg-webfont.svg#PFCentroSlabProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/******************************************************************
+BASE MOBILE STYLES
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible.
+******************************************************************/
+
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/*********************
+GRID & LAYOUT STYLES
+*********************/
+
+.wrap { 
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+img{
+	max-width:100%;
+	height: auto;
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited { color: #f01d4f; }
+a:hover, a:focus { color: #f05e81; }
+a:active {} /* on click */
+a:link { -webkit-tap-highlight-color : rgba(0,0,0,0); /* this highlights links on Iphones / iPads */ }
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 { font-family: sans-serif; font-weight: 500; }
+h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a { text-decoration: none; }
+h1, .h1 { font-size: 2.5em; line-height: 1.333em; }
+h2, .h2 { font-size: 1.75em; line-height: 1.4em; margin-bottom: 0.375em; }
+h3, .h3 { font-size: 1.125em; }
+h4, .h4 { font-size: 1.1em; font-weight: 700; }
+h5, .h5 { font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; letter-spacing: 2px; }
+
+/*********************
+HEADER SYTLES
+*********************/
+
+header[role=banner] {}
+
+	#logo {}
+	
+/*********************
+NAVIGATION STYLES
+*********************/
+
+nav[role=navigation] {}
+
+	nav[role=navigation] .menu {
+		margin: 1.1em 0; 
+	}
+	
+	nav[role=navigation] .menu ul {}
+		nav[role=navigation] .menu ul li {}
+			nav[role=navigation] .menu ul li a {}
+				nav[role=navigation] .menu ul li a:hover { }
+				
+				nav[role=navigation] .menu ul li:first-child a {}
+				
+		nav[role=navigation] .menu ul li.current-menu-item a, 
+		nav[role=navigation] .menu ul li.current_page_item a,
+		nav[role=navigation] .menu ul li.current-page-ancestor a {}
+		
+		nav[role=navigation] .menu ul li ul.sub-menu, nav[role=navigation] .menu ul li ul.children {}
+			nav[role=navigation] .menu ul li ul li a {}
+				nav[role=navigation] .menu ul li ul li a:hover {}
+			nav[role=navigation] .menu ul li ul li:last-child a {}
+			nav[role=navigation] .menu ul li:hover ul { }
+				nav[role=navigation] .menu ul li ul li ul.sub-menu { }
+					nav[role=navigation] .menu ul li ul li:hover ul.sub-menu { }
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content { margin-top: 2.2em; }
+	
+		.hentry {}
+		
+		.single-title, .page-title {}
+		.single-title {}
+		.page-title {}
+		.archive_title { }
+	
+		/* want to style individual post classes? Booya! */
+		.post-id {} /* post by id (i.e. post-3) */
+		.post {} /* general post style */
+		.page {} /* general article on a page style */
+		.attachment {} /* general style on an attatchment */
+		.sticky {} /* sticky post style */
+		.hentry {} /* hentry class */
+		.category-slug {} /* style by category (i.e. category-videos) */
+		.tag-slug {} /* style by tag (i.e. tag-news) */
+	
+		/* post meta */
+		.meta {}
+			.meta time {}
+			
+		/* post content */
+		.post_content {}
+			
+			.post_content p {}
+			.post_content ul, .post_content ol, .post_content table, .post_content dl {}
+			.post_content ul, .post_content ol {}
+			.post_content li {}
+			.post_content ul li {}
+			.post_content ol li {}
+			
+			.post_content blockquote {}
+			.post_content blockquote:before {} /* this adds the quote before the blockquote */
+			
+			.post_content dl {}
+			.post_content dt {}
+			.post_content dd {}
+			
+			.post_content img { margin: 0 0 1.5em 0; max-width: 100%; }
+			.alignleft, img.alignleft { margin-right: 1.5em; display: inline; float: left; }
+			.alignright, img.alignright { margin-left: 1.5em; display: inline; float: right; }
+			.aligncenter, img.aligncenter { margin-right: auto; margin-left: auto; display: block; clear: both; }
+			
+			.post_content video { max-width: 100%; }
+			.post_content object { max-width: 100%; }
+			.post_content pre, .post_content code {}
+			
+			.wp-caption {}
+			.wp-caption img {}
+			.wp-caption p.wp-caption-text {}
+			
+			/* image gallery styles */
+			.gallery dl {}
+			.gallery dt {}
+			.gallery dd {}
+			.gallery dl a {}
+			.gallery dl img {}
+			.gallery-caption {}
+			
+			.size-full {}
+			.size-large {}
+			.size-medium {}
+			.size-thumbnail {}
+			
+		.hentry footer {}	
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+aside1 { }
+
+	.widget {}
+	
+		.widget li {}
+		
+			.widget li ul li a {}
+			
+				.widget li ul li:last-child, .widget li:last-child {}
+				
+					.widget li:first-child {}
+					
+					.widget li ul li:first-child {}
+
+		
+			.widget li a {}
+		
+		.widgettitle {}
+		
+	aside1 #searchform #s {}
+
+/*********************
+FOOTER STYLES
+*********************/
+
+footer[role=contentinfo] {}
+	footer[role=contentinfo] nav {}
+		.footer-links ul {}
+			.footer-links ul li {}
+				.footer-links ul li a {}
+					.footer-links ul li:last-child a {}
+			.footer-links ul li a:hover, .nav ul li.current-menu-item a, .nav ul li.current_page_item a {}
+			.footer-links ul li ul.sub-menu {}
+			
+	.attribution {}
+
+
+/******************************************************************
+iPAD & TABLET STYLES 
+These is your iPad styles. They will be visible to anyone who 
+resizes their browser from the smallest size to the next break
+point.
+*****************************************************************
+@media only screen and (min-width: 480px) {*/
+
+
+/*
+} /* end of media query 
+
+/******************************************************************
+DESKTOP & JUST BIGGER THAN AN iPAD
+This is your standard iPad size or average tablet size. It's also
+a decent size for desktop users.
+*****************************************************************
+@media only screen and (min-width: 768px) {
+
+*/
+
+/* 
+} end of media query */
+
+/******************************************************************
+AVERAGE VIEWING SIZE 
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+******************************************************************/
+/* ========== */
+/* = Colors = 
+
+blue-sky : #009DE0
+
+========== */
+
+@media only screen and (min-width: 768px) {
+
+	/* - GENERAL & TYPO - */
+	html, body {
+		height: 100%;
+	}
+	body {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	    color: #000;
+	}
+	header h1, header h2 {
+		position: absolute;
+		text-indent: -9999px;
+	}
+	nav a, h2 a, h3, a, h4 a{
+		border:none;
+	}
+	a, a:visited {
+		text-decoration: none;
+		color:#000;
+		border-bottom:1px solid #009DE0;
+	}
+	a:hover {
+		color:#000;
+	}
+	a.more-link, a.more{
+		color:#009DE0;
+		border:none;
+	}
+	/* -- MAIN DIV'S -- */
+	#container {
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		margin: 0 auto -100px; /* stycki - the bottom margin is the negative value of the footer's height */
+		padding: 0 10px;
+		text-align: left;
+		background: url(library/images/fond2.png) repeat-x bottom left #FFF;
+	}
+	
+	.wrap {
+		position:relative;
+		max-width: 960px;
+	}
+	header {
+		position: relative;
+		/*height: 368px;*/
+	}
+	.headerborder{
+		margin:-5px 20px 0 20px;
+		height:5px;
+		background-color:#000;
+	}
+	#beta {
+		position: absolute;
+		height: 155px;
+		top: 20px;
+		left: 720px;
+		width: 195px;
+		z-index: 100;
+	}
+	#content {
+		/*margin-top:2.2em;*/
+	}
+	#inner-content{
+		margin:0 17px 35px 0;
+	}
+	.content-indent{
+		margin: 35px 0 0 20px;
+		padding:0 0 35px;
+		border-bottom:2px solid #000;
+	}
+	.content-indent.last{
+		border:none;
+	}
+	.coleft, .coleft-big{
+		width:60%;
+		float:left;
+	}
+	.coleft-big{
+		width:80%;
+	}
+	aside{
+		width:30%;
+		float:right;
+	}
+	aside.smallside{
+		width:20%;
+	}
+	footer#footer {
+		height: 80px; /* stycki - height footer, check -> .push & #wrapper */
+		margin: 10px 0;
+		padding: 0;
+		text-align: left;
+		/*background: url(library/images/footer_bkg.gif) repeat-x top left;*/
+	}
+	#footer_info {
+		position: relative;
+		max-width: 960px;
+		margin: -100px auto 0 auto;
+		padding:0 5%;
+	}
+	.atrafoot{
+		width:270px;
+		margin:0;
+		padding:0;
+		
+	}
+	.push {
+		height: 100px; /* stycki - .push must be the same height as .footer */
+	}
+	* html .push {
+		height: 100px; /* IE6 stycki - .push must be the same height as .footer */
+	}
+	.clear {
+		clear: both;
+	}
+	/* MAIN MENU */
+	header nav.menu {
+		position: absolute;
+		bottom: 23px;
+		left: 23%;
+		background-color: #000;
+		padding:5px 15px;
+		filter:alpha(opacity=85);
+		-moz-opacity:0.85;
+		opacity: 0.85;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		border:2px solid #FFF;
+	}
+	header .menu ul li {
+		display: inline;
+		margin: 0 10px 0 0;
+	}
+	
+	/* -- HOME -- */
+	#content #home_left {
+		/*width: 470px;*/
+		width:48%;
+		float: left;
+	}
+	#content #home_right {
+		/*margin: 0 0 0 490px;*/
+		width:48%;
+		float:right;
+	}
+	#content #home_right .image_catalogue {
+		margin: 2px 0 0;
+	}
+	.home-livre, .home-aparaitre, .home-news {
+		margin: 0 0 60px 0;
+		overflow: hidden;
+		width: 100%;
+	}
+	.home-livre, .home-aparaitre{
+		/*margin-top: 10px;*/
+	}
+	#home_right h2, #home_right  h3{
+		margin:0 0 0 100px;
+	}
+	#home_right  h3{
+		line-height:20px;
+	}
+	#home_left .content{
+		margin: 35px 0 0 20px;
+	}
+	#home_right .content {
+		margin: 35px 0 0 100px;
+	}
+	#home_right .additional-meta{
+		background-color:#000;
+		color:#FFF;
+		padding:3px 5px  1px;
+		margin:0 0 10px;
+	}
+	.home-news .additional-meta, .additional-meta{
+		background-color:#009DE0;
+		color:#FFF;
+		padding:3px 5px  1px;
+		font-size:11px;
+	}
+	
+	/* = NEWS = */
+	
+	#news .entry-content{
+		/*margin: 35px 0 0 20px;*/
+		padding:0 0 20px;
+		border-bottom:2px solid #000;
+	}
+	#news .entry-content.last{
+		border:none;
+	}
+	/* -- A PARAITRE -- */
+	#paraitre .coleft, #single-livre .coleft{
+		width:72%;
+		float:left;
+	}
+	#paraitre .colright, #single-livre .colright{
+		width:26%;
+		float:right;
+	}
+	#paraitre .colright .parution{
+		font-family:'PFI';
+		font-size:22px;
+		line-height:1.2em;
+		margin:5px 0 50px;
+	}
+	.colright a, .news li a{
+		font-size:10px;
+		text-transform:uppercase;
+		color:#009DE0;
+		border:none;
+		padding:0 0 5px;
+	}
+	ul.news{
+		list-style:none;
+		margin:0;
+	}
+	.news li a{
+		margin:0;
+		color:#000;
+		text-decoration:none;
+	}
+	/* LIVRE */
+	#single-livre .content-indent{
+		border:none;
+		margin-top:0;
+	}
+	#single-livre h2.entry-title{
+		margin:0 0 5px;
+		width:75%;
+	}
+	#single-livre h3{
+		margin-bottom:35px;
+		width:75%;
+		line-height: 1.5em
+	}
+	.livre-image {
+		width:270px;
+		float:left;
+	}
+	.livre-content {
+		margin-left:285px;
+	}
+	.livre_tech {
+		line-height: 11pt;
+		text-transform: uppercase;
+		color: #ff00ac;
+		padding: 0 0 38px 0;
+		margin: 0 0 14px 288px;
+	}
+	#archlivre {
+	}
+	#archlivre .post {
+		margin: 0;
+	}
+	#sidebar_livre div {
+		margin: 0 0 10px 0;
+	}
+	.cat-desc{
+		cursor:pointer;
+		font-weight:bold;
+		text-transform:uppercase;
+		color:#009DE0;
+	}
+	.galerie-livre{
+		margin:40px 0 0;
+	}
+	.galerie-livre img{
+		display:none;
+	}
+	/* AUTEURS */
+	.single-auteur .coleft{
+		width:48%;
+	}
+	.single-auteur aside{
+		width:48%;
+		margin:35px 0 0;
+	}
+	.single-auteur aside a{
+		font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size:13px;
+		padding:0 3px;
+	}
+	.single-auteur aside .current a{
+		background:#009DE0;
+		color:#FFF;
+	}
+	.auteurs_content {
+		margin: 20px 0 0 20px;
+	}
+	#bibliographie{
+		border-bottom:2px solid #000;
+		padding:0 0 30px;
+		
+	}
+	#bibliographie .bio-title{
+		font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		background:#5D5D5D;
+		color:#FFF;
+		padding:3px;
+		font-weight:normal;
+		font-size:11px;
+	}
+	#bibliographie ul{
+		list-style:none;
+		margin:10px 0 0 20px;
+	}
+	#bibliographie a{
+		font-weight:bold;
+		text-transform:uppercase;
+		color:#009DE0;
+		border:none;
+	}
+	.biblio{
+		margin:20px 0 0;
+	}
+	.bio-link{
+		margin:15px 0 0 20px;
+	}
+	.bio-link a{
+		font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color:#009DE0;
+		border:none;
+	}
+	/* GENERAL POSTS */
+	.post {
+		margin: 0 0 25px 0;
+	}
+	.additional-meta {
+		display:inline-block;
+		text-transform: uppercase;
+	}
+	aside .additional-meta {
+		margin:0 0 15px;
+	}
+	.entry-meta {
+		margin:30px 0 0
+	}
+	.entry-meta a {
+		text-transform: uppercase;
+		color:#009DE0;
+		border:none;
+		font-weight:bold;
+	}
+	#post-single {
+		margin: 0 0 20px;
+	}
+	.collapsed{
+		display:none;
+	}
+	.entry-content {
+		margin: 0 0 0 20px;
+	}
+	/* IMAGES */
+	#catalogue-content, #tag-content{
+		margin:20px 0 0;
+	}
+	img.image_catalogue {
+		float: left;
+		margin: 0 10px 10px 0;
+		width: 88px;
+		border: 1px solid #666;
+	}
+	img.images_livre {
+		border: 1px solid #000;
+		/*float: left;*/
+	}
+	a.image_catalogue{
+		border:none;
+	}
+	.image_catalogue img{
+		/*width:92px;*/
+		-moz-box-shadow: 1px 1px 7px #9c9c9c;
+		-webkit-box-shadow: 1px 1px 7px #9c9c9c;
+		box-shadow: 1px 1px 7px #9c9c9c;
+		margin:4px 10px -15px 4px;
+	}
+	#tag-content .image_catalogue img{
+		margin:0 10px 10px 0;
+	}
+	/* ========== */
+	/* = tooltip = */
+	/* ========== */
+	.tooltip {
+		display:none;
+		width:180px;
+		background:#000;
+		padding:5px;
+		font-size:11px;
+		color:#fff;
+		border:2px solid #FFF;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+		box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+		filter:alpha(opacity=85);
+		-moz-opacity:0.85;
+		opacity: 0.85;
+	}
+	.tooltip h3{
+		font-weight:bold;
+		font-size:16px;
+	}
+	.auteurs-tip a, .auteurs-tip a:visited{
+		color:#FFF;
+		border:none;
+	}
+	/* GENERAL SIDEBARS */
+	.sidebar {
+
+	}
+	/* -- 404-PAGE --*/
+	.error404 {
+		margin: 0;
+		width: 100%;
+	}
+	.error404 h1, .error404 h2 {
+		margin: 10px auto;
+	}
+	/* -- COMMENTS -- */
+	div.comments-wrap {
+		margin: 15px auto;
+		padding: 0;
+	}
+	li.comment, li.trackback, li.pingback {
+		margin: 10px auto;
+	}
+	ul.children {
+		margin-left: 10px;
+	}
+	ul.commentlist, ul.pinglist {
+		margin: 10px 0;
+	}
+	div.reply {
+	}
+	textarea#comment {
+		overflow: auto
+	}
+	/* ALIGNMENTS */
+	img.alignright {
+		float: right;
+		clear: none;
+		margin: 0 0 1em 1em
+	}
+	img.alignleft {
+		float: left;
+		clear: none;
+		margin: 0 1em 1em 0
+	}
+	img.aligncenter {
+		display: block;
+		margin: 1em auto;
+		text-align: center;
+	}
+	img.alignnone {
+		margin: 0 0.5em 0 0;
+	}
+	/* POSTS NAVIGATION */
+	div.navigation {
+		width: 100%;
+		height: auto;
+		float: left;
+		clear: both;
+		padding: 10px 0px;
+	}
+	.navigation-index {
+
+	}
+	.nav-next {
+		float: right;
+		clear: none;
+		width: 48%;
+		text-align: right;
+	}
+	.nav-prev {
+		float: left;
+		clear: none;
+		width: 48%;
+		text-align: left;
+	}
+	
+	/* ========== */
+	/* = Typo = */
+	/* ========== */
+
+	/* GENERAL */
+	
+	a img{
+		border:none;
+	}
+	p{
+		margin:10px 0 0;
+	}
+	h2, h3, h4{
+	    font-family: 'PFR', Arial, Helvetica, sans-serif;
+	    line-height:1em;
+	    margin:0;
+	    padding:0;
+	    font-weight:normal;
+	}
+	/* home */
+	#home_left h2.entry-title, #home_left h2.entry-title a, #news h2.entry-title, #news h2.entry-title a{
+	    font-family: 'PFI';
+		border-top:none;
+		font-size:44px;
+		padding:3px 0 0 0;
+		margin:0 0 15px 0;
+		text-align:left;
+	}
+	#home_right h2.entry-title, #home_right h2.entry-title a {
+		font-family: 'PFBI';
+		font-size: 18px;
+		border-top:none;
+		padding:3px 0 0 0;
+		text-align:left;
+		text-transform:uppercase;
+	}
+	/* menu */
+	#menu li a{
+		font-family: 'PFR', Arial, Helvetica, sans-serif;
+		letter-spacing:1px;
+		font-size:16px;
+		color:#FFF;
+	}
+	#menu li a:hover,#menu li.current-cat a, #menu li.current_page_item a  {
+		color:#009DE0;
+	}
+	/* footer */
+	#footer_info{
+		color:#FFF;
+		font-size:10px;
+	}
+	
+	/* SINGLE PAGES */
+	h2.entry-title, h2.entry-title a, h2.archive-title, h2.archive-title a  {
+	    font-family: 'PFBI';
+		color:#000;
+		font-size:36px;
+		line-height: 1em;
+	}
+	
+	.news h2.entry-title, .news h2.entry-title a, .home-news h2.entry-title, .home-news h2.entry-title a {
+	    font-family: 'PFI';
+	    font-size:44px;
+	}
+	/* PAGES ARCHIVES */
+	h2.archive-title, h2.archive-title a {
+	    
+	}
+	.coleft h3{
+		font-family:'PFI';
+		font-size:24px;
+		line-height:1.3em;
+		margin:5px 0 0;
+	}
+	.coleft h3 a{
+		
+	}
+	h2.entry-title span{
+		display:none;
+	}
+	/* AUTEURS */
+	.auteurs-archive a{
+		font-family: 'PFI';
+		font-size:33px;
+		border:none;
+	}
+	li.auteurs_atrabile, li.auteurs_bilenoire {
+		display:inline;
+		margin:0;
+		padding:0;
+	}
+	li.auteurs_bilenoire a {
+		color:#666;
+	}
+	h3.auteurs{
+		border-top:1px dashed #000;
+		margin:15px 0 0 0;
+		padding:3px 0;
+		text-transform:uppercase;
+	}
+	h3.auteurs a{
+		color:#ff00ac;
+	}
+	.home-auteur h3{
+		font-family:'PFI';
+		font-size:14px;
+	}
+	/*autres*/
+	
+	h2#comments {
+	    margin: 20px auto 10px;
+	    font-size: 140%;
+	}
+	.tags a{
+		background:#ff0031;
+		color:#FFF;
+	}
+	h3{
+		margin:0 0 5px 0;
+	}
+	.entry-content h3 {
+	    font-size: 110%;
+	} .entry-content h4 {
+	    font-size: 100%;
+	} .entry-content h5 {
+	    font-size: 100%;
+	} .entry-content h6 {
+	    font-size: 100%;
+	}
+	/* ========== */
+	/* = newsletter = */
+	/* ========== */
+	.newsubscribe{
+		position:absolute;
+		right:65px;
+		top:5px;
+		width:43%;
+	}
+	.newsubscribe h4{
+		font-family:Arial, Helvetica, sans-serif;
+		margin:0;
+		padding:0;
+		text-transform:uppercase;
+		font-size:11px;
+	}
+	.wpmlwidget fieldset {
+    width:40%;
+    float:left;
+    border: none;
+	border-bottom: none;
+	margin: 0 0 10px 0;
+	padding: 5px 0 0 0;
+}
+/**** Isotope filtering ****/
+#filters{
+	list-style:none;
+}
+#filters li{
+	display:inline;
+}
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}	
+	
+	
+} /* end of media query */
+
+
+
+/******************************************************************
+SUPER LARGE MONITORS STYLES 
+This is for super wide monitors for the l33t people. If you 
+worked in a good base in the previous styles, this should work
+pretty seamlessly.
+******************************************************************/
+@media only screen and (min-width: 1382px) {
+
+body {}
+
+.wrap {
+	max-width: 960px;
+}
+
+} /* end of media query */
+
+/******************************************************************
+RETINA (iPhone 4 & 5) OR SUPER HIGH RES SCREENS STYLES 
+This is for the high res phones or devices.
+******************************************************************/
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+/* insert styles here */
+
+} /* end of media query */

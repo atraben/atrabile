@@ -1,0 +1,199 @@
+/* @override 
+	http://atrabile.org/wp-content/themes/atratheme/coming-soon/css/atrabile.css
+*/
+
+body {
+	font: 11pt/1.3em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #333333;
+	background: #eeeced url(http://atrabile.org/wp-content/themes/atratheme/coming-soon/images/fond.png) no-repeat center top;
+}
+
+a img {
+	border: none;
+}
+
+a:link {
+	color: #fb59c3;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #58585a;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #fb9cce;
+	text-decoration: none;
+}
+
+p {
+	margin: 10px 0 5px 0;
+	padding-left: 30px;
+	font-size: 0.9em;
+	line-height: 1.4em;
+}
+
+span.strike {
+	text-decoration: line-through;
+}
+
+/* IE8 hack to get it to apply margin auto centering to element inside this one */
+
+#wrap {
+	width: 100%;
+}
+
+/* Header */
+
+#header {
+	padding: 0 0 15px;
+}
+
+#header #logo {
+	width: 940px;
+	margin: 0 auto;
+	padding: 0 10px 20px;
+		border-bottom: 1px dashed #58585a;
+
+}
+
+/* Content Area */
+
+#main {
+	width: 940px;
+	margin: 0 auto;
+	clear: both;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#main2 {
+	width: 800px;
+	margin: 0 auto;
+	clear: both;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#content {
+	width: 458px;
+	float: left;
+	padding: 8px 0 25px;
+}
+
+#content h1 {
+	margin: 0;
+	padding: 5px 0 10px;
+	color: #000;
+	font: italic bold 2.6em/1.1em Georgia, "Times New Roman", Times, serif;
+}
+
+#content h2 {
+	color: #feffff;
+	background-color: #fb59c3;
+	display: inline;
+	font-size: 0.8em;
+	font-weight: normal;
+	font-style: normal;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-top: 1px solid #fb59c3;
+	border-left: 3px solid #fb59c3;
+	border-right: 3px solid #fb59c3;
+}
+
+#content .color {
+	color: #fb59c3;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	padding: 33px 0 0;
+	width: 450px;
+}
+
+.side {
+	margin-left: 30px;
+	font-size: 0.9em;
+	line-height: 1.7em;
+}
+
+div.side .color {
+	color: #fb59c3;
+}
+
+/* Footer */
+
+#footer {
+	background: #444444 url(http://atrabile.org/wp-content/themes/atratheme/coming-soon/images/footer.gif) repeat-x;
+	color: #ffffff;
+	font-size: 11px;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+#footer p, #footer2 p {
+	margin: 0 0 15px 0;
+}
+
+#foot {
+	width: 940px;
+	margin: 0 auto;
+	height: 140px;
+	line-height: 1.1em;
+	padding: 0 10px 0 10px;
+}
+
+#foot #left {
+	width: 390px;
+	float: right;
+	line-height: 1.5em;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	clear: both;
+	padding-top: 20px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
+
+.submit{
+     border:none;
+     color: rgba(255,255,255,0);
+     background: transparent url('http://atrabile.org/wp-content/themes/atratheme/coming-soon/images/newsletter.png') no-repeat top left;
+     width:275px;
+     height:65px;
+	margin-left: 55px;
+	margin-top: -15px;
+}
+
+a:hover input.submit {
+cursor:pointer;
+background-image: url('http://atrabile.org/wp-content/themes/atratheme/coming-soon/images/newsletter.png');
+background-position: 0 -65px;
+}
+
+a:active input.submit {
+cursor:pointer;
+background-image: url('http://atrabile.org/wp-content/themes/atratheme/coming-soon/images/newsletter.png');
+background-position: 0 -130px;
+}
