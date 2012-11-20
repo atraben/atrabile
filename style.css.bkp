@@ -7,7 +7,7 @@ Theme URI: http://www.atrabile.org
 Description: Atrabile's WP theme
 Author: So2design - One Pixel Studio
  Author URI: http://www.so2design.ch
-Version: 0.8.5
+Version: 0.8
 Tags: html5, css3, responsive
 
 License: GPL or whatever
@@ -57,7 +57,6 @@ mark, .search-term { background: #EBE16F; }
 	http://www.fontsquirrel.com/
 	Be sure to remove the comment brackets.
 */
-
 @font-face {
     font-family: 'PFBI';
     src: url('library/fonts/pfcentroslabpro-blackital-webfont.eot');
@@ -345,14 +344,13 @@ blue-sky : #009DE0
 	/* - GENERAL & TYPO - */
 	html, body {
 		height: 100%;
-/*		background: url(library/images/fond-page.gif) repeat;*/
-}
-		
+	}
 	body {
 		position: relative;
 		margin: 0;
 		padding: 0;
-		color: #444;
+		text-align: center;
+	    color: #000;
 	}
 	header h1, header h2 {
 		position: absolute;
@@ -542,28 +540,26 @@ blue-sky : #009DE0
 	}
 	/* -- A PARAITRE -- */
 	#paraitre .coleft, #single-livre .coleft{
+		width:72%;
 		float:left;
-		width: 81%;
 	}
 	#paraitre .colright, #single-livre .colright{
+		width:26%;
 		float:right;
-		margin-top: -13px;
-		width: 18%;
+		margin-top: -10px;
 	}
 	
 	.livre-tech {
 		font-size: 10px;
 		font-weight: bold;
 		color: gray;
-		width: 95%;
-		margin-bottom: 10px;
-/*		text-align: right;*/
+/*		width: 95%;*/
 	}
 	
 	.livre-tech p {
-/*		margin-top: 2px;
+		margin-top: 2px;
 		border-bottom: 1px solid silver;
-		padding-bottom: 2px;*/
+		padding-bottom: 2px;
 	}
 	
 	#paraitre .colright .parution{
@@ -595,37 +591,20 @@ blue-sky : #009DE0
 	}
 	#single-livre h2.entry-title{
 		margin:0 0 5px;
-		width: 82%;
+/*		width:75%;*/
 	}
 	#single-livre h3{
-		margin-bottom: 35px;
-		width:77%;
-		line-height: 22px;
-		margin-left: 3px;
+		margin-bottom:35px;
+		width:75%;
+		line-height: 1.5em
 	}
 	.livre-image {
 		width:270px;
 		float:left;
 	}
-	
-	.livre-image img{
-		-moz-box-shadow: 1px 1px 7px #9c9c9c;
-		-webkit-box-shadow: 1px 1px 7px #9c9c9c;
-		box-shadow: 1px 1px 7px #9c9c9c;
-		margin-bottom: 10px;
-	}
-	
 	.livre-content {
-		margin-left: 285px;
-		-moz-column-count: 2;
-		-moz-column-gap: 10px;
-		-webkit-column-count: 2;
-		-webkit-column-gap: 10px;
-		column-count: 2;
-		column-gap: 10px;
-		margin-top: -4px;
+		margin-left:285px;
 	}
-
 	.livre_tech {
 		line-height: 11pt;
 		text-transform: uppercase;
@@ -647,21 +626,23 @@ blue-sky : #009DE0
 		text-transform:uppercase;
 		color:#009DE0;
 		font-size: 10px;*/
-		
-		text-transform: uppercase;
-		color: gray;
+		font-size: 10px;
+		text-transform:uppercase;
+		color:#009DE0;
+		border:none;
 		padding: 0;
+		font-weight: normal;
+		font-style: normal;
+		margin-bottom: 3px;
 		display: block;
-		font: bold 12px 'Lato', sans-serif;
 	}
 	
 	.livre-infos {
-		margin-top: 2px;
-		padding-bottom: 12px;
+		
 	}
 	
 	.galerie-livre{
-		margin: 5px 0 0;
+		margin:10px 0 0;
 		font-size: 9px;
 	}
 	.galerie-livre img{
@@ -773,7 +754,7 @@ blue-sky : #009DE0
 		-moz-box-shadow: 1px 1px 7px #9c9c9c;
 		-webkit-box-shadow: 1px 1px 7px #9c9c9c;
 		box-shadow: 1px 1px 7px #9c9c9c;
-		margin: 4px 10px 5px 4px;
+		margin:4px 10px -15px 4px;
 	}
 	#tag-content .image_catalogue img{
 		margin:0 10px 10px 0;
@@ -890,12 +871,10 @@ blue-sky : #009DE0
 		border:none;
 	}
 	p{
-		margin: 0;
-		font-family: 'Lato', sans-serif;
+		margin:10px 0 0;
 	}
-	
 	h2, h3, h4{
-	    font-family: 'Lato', sans-serif;
+	    font-family: 'PFR', Arial, Helvetica, sans-serif;
 	    line-height:1em;
 	    margin:0;
 	    padding:0;
@@ -936,8 +915,10 @@ blue-sky : #009DE0
 	
 	/* SINGLE PAGES */
 	h2.entry-title, h2.entry-title a, h2.archive-title, h2.archive-title a  {
+	    font-family: 'PFBI';
 		color:#000;
-		font: 36px/1em 'PFBI';
+		font-size:36px;
+		line-height: 1em;
 	}
 	
 	.news h2.entry-title, .news h2.entry-title a, .home-news h2.entry-title, .home-news h2.entry-title a {

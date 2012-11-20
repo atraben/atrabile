@@ -287,7 +287,7 @@ function image_listings($atts, $content = null) {
 				$thumb_image = wp_get_attachment_image_src($image -> ID, $small_image);
 				$html .= ($child_wrap != '') ? "<{$child_wrap}>\r\n" : '';
 				$html .= ($link == 'true') ? "\t<a href=\"{$lrg_image[0]}\"{$lightbox} id=\"img-" . $image -> ID . "\" class='cboxElement'>" : '';
-				$html .= 'Découvrir un apperçu du livre';
+				$html .= 'Voir un extrait du livre';
 				$html .= '<img src="' . $thumb_image[0] . '" width="' . $thumb_image[1] . '" height="' . $thumb_image[2] . '"' . $alt . ' class="attachment-thumbnail colorbox-01" />';
 				$html .= ($link == 'true') ? "</a>\r\n" : "\n\t";
 				$html .= ($captions == 'true') ? "\t<span>" . ucwords(str_replace('-', ' ', $image -> post_title)) . "</span>\r\n" : '';

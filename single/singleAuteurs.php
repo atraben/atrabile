@@ -72,7 +72,7 @@
 							for ($i = 0; $i < $tagcount; $i++) {
 							$tagIDs[$i] = $tags[$i]->term_id;
 							}
-							$args = array('cat'=> 4, 'category__not_in' => array( 6 ), 'tag__in'=>$tagIDs, 'post__not_in'=>array($post->ID), 'showposts'=>50, 'caller_get_posts'=>1);
+							$args = array('category_name'=> 'livres', 'category__not_in' => 11, 'tag__in'=>$tagIDs, 'post__not_in'=>array($post->ID), 'showposts'=>50, 'caller_get_posts'=>1);
 							$my_query = new WP_Query($args);
 							if ($my_query->have_posts()) {
 							while ($my_query->have_posts()):

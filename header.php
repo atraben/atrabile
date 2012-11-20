@@ -48,8 +48,10 @@
 		<!-- default stylesheet -->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/normalize.css">		
 		
+<link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Chivo:900italic,900' rel='stylesheet' type='text/css'>
+		
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
 
 		<!-- modernizr -->
@@ -84,7 +86,26 @@
 					?></a></h1>
 					<h2><?php bloginfo('description');
 					?></h2>
-					<img src="<?php bloginfo('stylesheet_directory'); ?>/library/images/random/rotate.php" alt="" width="940" height="368" />
+
+
+<?php 
+
+if ( is_home() ) { 
+
+		 get_template_part( 'head', 'home' ); 
+
+// } elseif ( in_category('expositions') ) { 
+//
+//		 get_template_part( 'head', 'single_expo' ); 
+		
+ } else { 
+
+		 get_template_part( 'head', 'single' ); 
+
+ } ?>
+
+
+
 					<nav role="navigation" class="menu">
 						<ul id="menu">
 							<li>
