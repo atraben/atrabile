@@ -56,8 +56,51 @@
 
 		<!-- modernizr -->
 		<script src="<?php echo get_template_directory_uri(); ?>/library/js/modernizr.full.min.js"></script>
+	
+<!--	<script src="<?php echo get_template_directory_uri(); ?>/library/js/jquery.column-1.0.js"></script>
 		
-  		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+		<script>
+		
+		(function ($) {
+			$( function() {
+				$('.livre-content p').column({
+//					width: 'auto',    // Default, this line is redundant.
+  					count: 2,         // Spread over 4 columns.
+// 					gap: 10,        // Space columns 20 pixels apart.
+//  				rule_style: 'dotted',  // Show a dotted rule between columns.
+//  				rule_width: 'thin',    // Set width of rule to 'thin' (usually 1 pixel).
+//					rule_color: '#ccc',    // Set color of rule to a light gray.
+//					split: 'sentence' // Keeps sentences together.
+				});
+			});		
+		}(jQuery));
+		
+			</script>
+		-->
+		
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/jquery.columnizer.js"></script>
+
+<script>
+
+(function ($) {
+	$(function(){
+		$('.livre-content').columnize({
+				columns: 2,
+				lastNeverTallest: true,
+//				doneFunc: function(){
+//					$('.first.column').css("width", "222px");
+//					$('.last.column').css("width", "222px");
+//					
+//			}
+				
+				manualBreaks:true
+ 			});
+	});
+}(jQuery));
+
+	</script>
+		
+				<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
@@ -90,14 +133,18 @@
 
 <?php 
 
-if ( is_home() ) { 
+if ( is_home () || is_page('Atrabile') || in_category('news') ) { 
 
 		 get_template_part( 'head', 'home' ); 
 
-// } elseif ( in_category('expositions') ) { 
+// } elseif ( in_category('news') ) { 
 //
-//		 get_template_part( 'head', 'single_expo' ); 
-		
+//		 get_template_part( 'head', 'home' ); 
+//
+//} elseif ( is_page('Atrabile') ) { 
+//
+//		 get_template_part( 'head', 'home' ); 
+//		
  } else { 
 
 		 get_template_part( 'head', 'single' ); 

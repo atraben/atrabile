@@ -5,13 +5,14 @@
 	?>
 	<h3>Par collection</h3>
 	<ul id="filters">
-				<li class="parent-item"><a href="#" data-filter="*">Tous les livres</a></li>
+				<li class="parent-item "><a class="colbut-1" href="#" data-filter="*"><span>Tous les livres</span></a></li>
 			<?php
 				$cat = get_query_var('cat');
-				foreach (get_categories('parent=4') as $category) {
+//				foreach (get_categories('parent=4') as $category) {
+				foreach (get_categories('parent=9') as $category) {
 					//for each child of category "livres"
 					echo '<li class="parent-item">
-					<a class="name" href="#" data-filter=".category-' . $category -> slug . '">' . $category -> name . '</a>';
+					<a class="name colbut-1" href="#" data-filter=".category-' . $category -> slug . '"><span>' . $category -> name . '</span></a>';
 					echo '</li>';
 				}
 			?>
@@ -31,12 +32,12 @@
 	</div>
 		<?php } ?>
 	
-	<div id="par-auteur">
+<!--	<div id="par-auteur">
 		<form class="jqtransform" action="#">
 			<select name="tag-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
 				<option value="#">Par auteur</option>
 				<?php dropdown_tag_cloud('number=0&order=name');?>
 			</select>
 		</form>
-	</div>
+	</div>-->
 </aside>

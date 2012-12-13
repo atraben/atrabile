@@ -11,11 +11,11 @@
 					$auteurs = new WP_Query(array(
 					'post_type' => 'Post',
 					'order' => 'ASC',
-					'orderby' => 'meta_value',
+					'orderby' => 'title',
 					'meta_key' => 'custom-title'
 					));
-					
-					while ($auteurs->have_posts()):
+
+			while ($auteurs->have_posts()):
 				    $auteurs->the_post(); 
 
 				?>

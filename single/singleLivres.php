@@ -21,14 +21,14 @@
 				            
 				            $args = array('category_name'=>'auteurs', 'tag__in'=>$tagIDs,
 				                /*    'post__not_in' => array($post->ID), */
-				                'showposts'=>50, 'caller_get_posts'=>1, 'orderby' => 'title', 'order' => 'ASC' );
+				                'showposts'=>50, 'caller_get_posts'=>1);
 				            $my_query = new WP_Query($args);
 				            if ($my_query->have_posts()) {
 				                while ($my_query->have_posts()):
 				                    $my_query->the_post();
 				?>
-<!--				<?php $title = get_post_meta($post -> ID, "custom-title", true);?>  -->
-				<a href="<?php the_permalink() ?>" rel="bookmark"><?php echo $title;?></a>
+				<?php $title = get_post_meta($post -> ID, "custom-title", true);?>
+				<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php $title;?>"><?php echo $title;?></a>
 				<?php
 				endwhile;
 				} else {
@@ -45,77 +45,56 @@
 
 				<div class="content-indent clearfix">
 					<div class="livre-image">
-					
-					
 					<?php $newImg = "h=380&w=270&zc=1&q=100";?>
 					<?php echo get_image('images_livre', 1, 1, 1, NULL, $newImg);?>
-										<!--?php echo get('galerie-images');?-->
+<!--					<img src="<?php the_field('images_livre'); ?>" class="livre-image" />-->
 					<?php echo do_shortcode("[livre-images link='true']");?>
 					</div>
 					<div class="livre-content">
-
-
-
-
-
-
-
-
-<div class="livre-infos">
-	<?php
-	if (in_category('a-paraitre')){
-	?>
-	<?php
-	// Get the ID of the "first = [0]" given category - Tous les livres de la collection
-	$cat = get_the_category();
-	$cat = $cat[1];
-	// Get the URL of this category
-	$category_livre = get_category_link($cat);
-	?>
-	<strong class="cat-desc"><?php $categoryname = get_the_category();
-		echo $categoryname[1] -> cat_name;
-	?> </strong> | <?php echo get('technique');?>
-	<div class="collapsed">
-		<a href="<?php echo $category_livre;?>" rel="bookmark"><?php $categorydesc = get_the_category();
-		echo $categorydesc[1] -> category_description;
-		?> </a>
-	</div>
-	<?php  }else{?>
-	<?php
-	// Get the ID of the "first = [0]" given category - Tous les livres de la collection
-	$cat = get_the_category();
-	$cat = $cat[0];
-	// Get the URL of this category
-	$category_livre = get_category_link($cat);
-	?>
-	<strong class="cat-desc"><?php $categoryname = get_the_category();
-		echo $categoryname[0] -> cat_name;
-	?> </strong>
-	<div class="collapsed">
-		<a href="<?php echo $category_livre;?>" rel="bookmark"><?php $categorydesc = get_the_category();
-		echo $categorydesc[0] -> category_description;
-		?> </a>
-	</div>
-	<?php } ?>	
-	<div class="livre-tech">
-	    <p><?php echo get('technique');?></p>
-		<p><?php echo get('format');?>, <?php echo get('reliure');?></p>
-		<p><?php echo get('prix');?></p>
-		<p>ISBN <?php echo get('isbn');?></p>
-		<p>Paru en <?php the_date('F Y'); ?></p></div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+						<div class="livre-infos">
+							<?php
+							if (in_category('a-paraitre')){
+							?>
+							<?php
+							// Get the ID of the "first = [0]" given category - Tous les livres de la collection
+							$cat = get_the_category();
+							$cat = $cat[1];
+							// Get the URL of this category
+							$category_livre = get_category_link($cat);
+							?>
+							<strong class="cat-desc"><?php $categoryname = get_the_category();
+								echo $categoryname[1] -> cat_name;
+							?> </strong> | <?php echo get('technique');?>
+							<div class="collapsed">
+								<a href="<?php echo $category_livre;?>" rel="bookmark"><?php $categorydesc = get_the_category();
+								echo $categorydesc[1] -> category_description;
+								?> </a>
+							</div>
+							<?php  }else{?>
+							<?php
+							// Get the ID of the "first = [0]" given category - Tous les livres de la collection
+							$cat = get_the_category();
+							$cat = $cat[0];
+							// Get the URL of this category
+							$category_livre = get_category_link($cat);
+							?>
+							<strong class="cat-desc"><?php $categoryname = get_the_category();
+								echo $categoryname[0] -> cat_name;
+							?> </strong>
+							<div class="collapsed">
+								<a href="<?php echo $category_livre;?>" rel="bookmark"><?php $categorydesc = get_the_category();
+								echo $categorydesc[0] -> category_description;
+								?> </a>
+							</div>
+							<?php } ?>	
+							<div class="livre-tech">
+							    <?php echo get('technique');?><br />
+								<?php echo get('format');?><br />
+								<?php echo get('reliure');?><br />
+								<?php echo get('prix');?><br />
+								isbn <?php echo get('isbn');?><br />
+								Paru en <?php the_date('F Y'); ?><br /></div>
+						</div>
 						<?php echo get('argumentaire');?>
 					</div>
 				</div>
@@ -128,27 +107,22 @@
 			$cat = $cat[0];
 			// Get the URL of this category
 			$category_niv1 = get_category_link($cat);
-			?> <a href="<?php echo $category_niv1;?>" rel="bookmark" title="<?php	$categoryname = get_the_category();
+			?> <a class="colbut-1" href="<?php echo $category_niv1;?>" rel="bookmark" title="<?php	$categoryname = get_the_category();
 				echo $categoryname[0] -> cat_name;
-			?>"> Les livres de la collection </a> <br />
-			
-			
+			?>"><span>Dans la même collection</span></a>
 			
 			
 				<?php
 				global $post;
 				foreach (get_the_tags($post->ID) as $tag) {
 
-					echo '<a href="' . get_option('home') . '/tag/' . $tag -> slug . '/" rel="tag">';
-					echo 'Les livres de ' . $tag -> name . '
-				<br />
-				';
+					echo '<a class="colbut-2" href="' . get_option('home') . '/tag/' . $tag -> slug . '/" rel="tag">';
+					echo '<span>Les livres de<br />' . $tag -> name . '</span><br />';
 					echo '</a>';
 
 				}
 				?>
-				
-			</div>
+							</div>
 		</div>
 		<!-- end .post -->
 		<?php endwhile;?>

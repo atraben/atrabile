@@ -66,8 +66,8 @@
 							$tags = wp_get_post_tags($post->ID);
 							$tagIDs = array();
 							if ($tags) {
-							echo '<strong class="bio-title">Bibliographie atrabilaire:</strong>';
-							echo '<ul>';
+//							echo '<strong class="bio-title">Bibliographie atrabilaire:</strong>';
+//							echo '<ul>';
 							$tagcount = count($tags);
 							for ($i = 0; $i < $tagcount; $i++) {
 							$tagIDs[$i] = $tags[$i]->term_id;
@@ -75,6 +75,10 @@
 							$args = array('category_name'=> 'livres', 'category__not_in' => 11, 'tag__in'=>$tagIDs, 'post__not_in'=>array($post->ID), 'showposts'=>50, 'caller_get_posts'=>1);
 							$my_query = new WP_Query($args);
 							if ($my_query->have_posts()) {
+
+							echo '<strong class="bio-title">Bibliographie atrabilaire:</strong>';
+							echo '<ul>';
+							
 							while ($my_query->have_posts()):
 							$my_query->the_post();
 
@@ -104,7 +108,7 @@
 							<?php endwhile;?>
 							</ul>
 							<?php } else {?>
-							<h3>Pas de livre chez ATRABILE !</h3>
+
 							<?php
 							}
 							}
@@ -121,8 +125,8 @@
 							$tags = wp_get_post_tags($post->ID);
 							$tagIDs = array();
 							if ($tags) {
-							echo '<strong class="bio-title">Revue Bile Noire:</strong>';
-							echo '<ul>';
+//							echo '<strong class="bio-title">Bile Noire:</strong>';
+//							echo '<ul>';
 							$tagcount = count($tags);
 							for ($i = 0; $i < $tagcount; $i++) {
 							$tagIDs[$i] = $tags[$i]->term_id;
@@ -130,6 +134,10 @@
 							$args = array('category_name'=> 'revue-bile-noire', 'tag__in'=>$tagIDs, 'post__not_in'=>array($post->ID), 'showposts'=>50, 'caller_get_posts'=>1);
 							$my_query = new WP_Query($args);
 							if ($my_query->have_posts()) {
+							
+							echo '<strong class="bio-title2">Participation à Bile Noire:</strong>';
+							echo '<ul>';
+							
 							while ($my_query->have_posts()):
 							$my_query->the_post();
 
@@ -159,7 +167,7 @@
 							<?php endwhile;?>
 							</ul>
 							<?php } else {?>
-							<h3>Pas de livre chez ATRABILE !</h3>
+
 							<?php
 							}
 							}

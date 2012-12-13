@@ -47,7 +47,7 @@
 					<div class="livre-image">
 					<?php $newImg = "h=380&w=270&zc=1&q=100";?>
 					<?php echo get_image('images_livre', 1, 1, 1, NULL, $newImg);?>
-					<!--?php echo get('galerie-images');?-->
+<!--					<img src="<?php the_field('images_livre'); ?>" class="livre-image" />-->
 					<?php echo do_shortcode("[livre-images link='true']");?>
 					</div>
 					<div class="livre-content">
@@ -88,40 +88,41 @@
 							</div>
 							<?php } ?>	
 							<div class="livre-tech">
-							    <p><?php echo get('technique');?></p>
-								<p><?php echo get('format');?></p>
-								<p><?php echo get('reliure');?></p>
-								<p><?php echo get('prix');?></p>
-								<p>ISBN <?php echo get('isbn');?></p>
-								<p>Paru en <?php the_date('F Y'); ?></p></div>
+							    <?php echo get('technique');?><br />
+								<?php echo get('format');?><br />
+								<?php echo get('reliure');?><br />
+								<?php echo get('prix');?><br />
+								isbn <?php echo get('isbn');?><br />
+								Paru en <?php the_date('F Y'); ?><br /></div>
 						</div>
 						<?php echo get('argumentaire');?>
 					</div>
 				</div>
 			</div>
 			<div class="colright">
+			
+			<?php
+			// Get the ID of the "first = [0]" given category - Tous les livres de la collection
+			$cat = get_the_category();
+			$cat = $cat[0];
+			// Get the URL of this category
+			$category_niv1 = get_category_link($cat);
+			?> <a class="colbut-1" href="<?php echo $category_niv1;?>" rel="bookmark" title="<?php	$categoryname = get_the_category();
+				echo $categoryname[0] -> cat_name;
+			?>"><span>Dans la même collection</span></a>
+			
+			
 				<?php
 				global $post;
 				foreach (get_the_tags($post->ID) as $tag) {
 
-					echo '<a href="' . get_option('home') . '/tag/' . $tag -> slug . '/" rel="tag">';
-					echo 'Tous les livres de ' . $tag -> name . '
-				<br />
-				';
+					echo '<a class="colbut-2" href="' . get_option('home') . '/tag/' . $tag -> slug . '/" rel="tag">';
+					echo '<span>Les livres de<br />' . $tag -> name . '</span><br />';
 					echo '</a>';
 
 				}
 				?>
-				<?php
-				// Get the ID of the "first = [0]" given category - Tous les livres de la collection
-				$cat = get_the_category();
-				$cat = $cat[0];
-				// Get the URL of this category
-				$category_niv1 = get_category_link($cat);
-				?> <a href="<?php echo $category_niv1;?>" rel="bookmark" title="<?php	$categoryname = get_the_category();
-					echo $categoryname[0] -> cat_name;
-				?>"> Tous les livres de la collection </a>
-			</div>
+							</div>
 		</div>
 		<!-- end .post -->
 		<?php endwhile;?>
